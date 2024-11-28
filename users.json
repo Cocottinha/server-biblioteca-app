@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "name": "João Silva",
+      "cpf": "12345678900",
+      "email": "joao@example.com",
+      "password": "senha123",
+      "role": "Aluno"
+    },
+    {
+      "name": "Cotta",
+      "cpf": "123123",
+      "email": "cotta@teste.com",
+      "password": "123456",
+      "role": "Administrador"
+    }
+  ]
+}

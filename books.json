@@ -1,0 +1,14 @@
+{
+  "books": [
+    {
+      "title": "Vrau",
+      "author": "Vrau",
+      "isbn": "123123",
+      "publisher": "Vrau",
+      "subject": "Vrau",
+      "edition": 1,
+      "inclusionDate": "2024-11-06",
+      "availability": "disponível"
+    }
+  ]
+}
