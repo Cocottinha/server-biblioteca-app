@@ -8,6 +8,8 @@ const PORT = 3000;
 const USERS_PATH = path.join(__dirname, 'users.json');
 const BOOKS_PATH = path.join(__dirname, 'books.json');
 const CUSER_PATH = path.join(__dirname, 'currentUser.json');
+const RENT_BOOKS_PATH = path.join(__dirname, 'rentBooks.json');
+
 const cors = require('cors');
 
 app.use(cors());
@@ -25,11 +27,51 @@ function writeJSON(filePath, data) {
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
 }
 
-// Endpoints
-// app.get('/books', (req, res) => {
-//   const data = readUsers();
-//   res.json(data);
-// });
+
+app.post('/rentals', (req, res) => {
+  const { bookId, userCpf, rentalDate } = req.body;
+
+  if (!bookId || !userCpf || !rentalDate) {
+    return res.status(400).send('Book ID, User CPF, and Rental Date are required.');
+  }
+
+  const data = readJSON(RENT_BOOKS_PATH);
+
+  data.rentals.push({
+    bookId,
+    userCpf,
+    rentalDate,
+  });
+
+  writeJSON(RENT_BOOKS_PATH ,data);
+  res.status(200).send('Rental record added successfully!');
+});
+
+app.get('/rentals', (req, res) => {
+  const data = readJSON(RENT_BOOKS_PATH);
+  res.status(200).json(data.rentals || []);
+});
+
+app.patch('/books/:id', (req, res) => {
+  const id = parseInt(req.params.id, 10); // Parse `id` as a number
+  const { availability } = req.body;
+
+  console.log("id", id);
+  console.log("a", availability);
+  const data = readJSON(BOOKS_PATH);
+  const book = data.books.find((b) => b.id === id);
+
+  console.log(data.books[0].id);
+  console.log("b", book);
+  if (!book) {
+    res.status(404).send('Livro não encontrado');
+    return;
+  }
+  console.log(availability);
+  book.availability = availability;
+  writeJSON(BOOKS_PATH, data);
+  res.status(200).send('Disponibilidade do livro atualizada com sucesso!');
+});
 
 app.post('/users', (req, res) => {
   const newUser = req.body;
@@ -96,7 +138,15 @@ app.post('/books', (req, res) => {
     data.books = [];
   }
 
-  // Add the new book
+  // Generate a unique ID for the new book
+  const newId = data.books.length > 0 
+    ? Math.max(...data.books.map((book) => parseInt(book.id || 0))) + 1 
+    : 1;
+
+  // Add the ID to the new book
+  newBook.id = newId.toString();
+
+  // Add the new book to the array
   data.books.push(newBook);
 
   // Write updated data back to the file
@@ -104,6 +154,7 @@ app.post('/books', (req, res) => {
 
   res.status(200).send('Livro adicionado com sucesso!');
 });
+
 
 
 // Inicializar servidor

@@ -1,5 +1,9 @@
 {
-    "rentBooks":[
-        
-    ]
+  "rentals": [
+    {
+      "bookId": 1,
+      "userCpf": "123123",
+      "rentalDate": "2024-11-29"
+    }
+  ]
 }
