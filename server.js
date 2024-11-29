@@ -10,6 +10,8 @@ const BOOKS_PATH = path.join(__dirname, 'books.json');
 const CUSER_PATH = path.join(__dirname, 'currentUser.json');
 const RENT_BOOKS_PATH = path.join(__dirname, 'rentBooks.json');
 
+const RENTAL_PERIOD_DAYS = 14; 
+
 const cors = require('cors');
 
 app.use(cors());
@@ -37,13 +39,23 @@ app.post('/rentals', (req, res) => {
 
   const data = readJSON(RENT_BOOKS_PATH);
 
+  // Calculate return date
+  const rentalDateObj = new Date(rentalDate);
+  const returnDateObj = new Date(rentalDateObj);
+  returnDateObj.setDate(rentalDateObj.getDate() + RENTAL_PERIOD_DAYS);
+
+  // Format return date as YYYY-MM-DD
+  const returnDate = returnDateObj.toISOString().split('T')[0];
+
+  // Add rental record
   data.rentals.push({
     bookId,
     userCpf,
     rentalDate,
+    returnDate,
   });
 
-  writeJSON(RENT_BOOKS_PATH ,data);
+  writeJSON(RENT_BOOKS_PATH, data);
   res.status(200).send('Rental record added successfully!');
 });
 
