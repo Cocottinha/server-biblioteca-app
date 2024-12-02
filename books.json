@@ -20,7 +20,18 @@
       "subject": "Vrau",
       "edition": 12,
       "inclusionDate": "2024-11-06",
-      "availability": "disponível"
+      "availability": "indisponível"
+    },
+    {
+      "title": "Ladrão de Sonhos",
+      "author": "Cleiton Souza",
+      "isbn": "341234123",
+      "publisher": "Brasil Vertical",
+      "subject": "Aventura",
+      "edition": 1,
+      "inclusionDate": "2014-01-14",
+      "availability": "disponível",
+      "id": "3"
     }
   ]
 }

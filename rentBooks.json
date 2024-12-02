@@ -3,8 +3,9 @@
     {
       "bookId": 1,
       "userCpf": "123123",
-      "rentalDate": "2024-11-29",
-      "returnDate": "2024-12-13"
+      "title": "Vrau",
+      "rentalDate": "2024-11-02",
+      "returnDate": "2024-11-16"
     }
   ]
 }

@@ -31,9 +31,9 @@ function writeJSON(filePath, data) {
 
 
 app.post('/rentals', (req, res) => {
-  const { bookId, userCpf, rentalDate } = req.body;
+  const { bookId, userCpf, title, rentalDate } = req.body;
 
-  if (!bookId || !userCpf || !rentalDate) {
+  if (!bookId || !userCpf ||!title || !rentalDate) {
     return res.status(400).send('Book ID, User CPF, and Rental Date are required.');
   }
 
@@ -51,6 +51,7 @@ app.post('/rentals', (req, res) => {
   data.rentals.push({
     bookId,
     userCpf,
+    title,
     rentalDate,
     returnDate,
   });
