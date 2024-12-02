@@ -1,11 +1,25 @@
 {
   "rentals": [
     {
-      "bookId": 1,
+      "bookId": "1",
       "userCpf": "123123",
       "title": "Vrau",
       "rentalDate": "2024-11-02",
       "returnDate": "2024-11-16"
+    },
+    {
+      "bookId": "3",
+      "userCpf": "1234567890",
+      "title": "Ladrão de Sonhos",
+      "rentalDate": "2024-12-02",
+      "returnDate": "2024-12-16"
+    },
+    {
+      "bookId": "2",
+      "userCpf": "1234567890",
+      "title": "Vrau",
+      "rentalDate": "2024-12-02",
+      "returnDate": "2024-12-16"
     }
   ]
 }

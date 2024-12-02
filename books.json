@@ -1,7 +1,7 @@
 {
   "books": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Vrau",
       "author": "Vrau",
       "isbn": "123123",
@@ -9,10 +9,10 @@
       "subject": "Vrau",
       "edition": 1,
       "inclusionDate": "2024-11-06",
-      "availability": "indisponível"
+      "availability": false
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Vrau",
       "author": "Vrau",
       "isbn": "123124",
@@ -20,7 +20,7 @@
       "subject": "Vrau",
       "edition": 12,
       "inclusionDate": "2024-11-06",
-      "availability": "indisponível"
+      "availability": false
     },
     {
       "title": "Ladrão de Sonhos",
@@ -30,7 +30,7 @@
       "subject": "Aventura",
       "edition": 1,
       "inclusionDate": "2014-01-14",
-      "availability": "disponível",
+      "availability": false,
       "id": "3"
     }
   ]

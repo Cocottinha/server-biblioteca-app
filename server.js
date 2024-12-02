@@ -66,7 +66,7 @@ app.get('/rentals', (req, res) => {
 });
 
 app.patch('/books/:id', (req, res) => {
-  const id = parseInt(req.params.id, 10); // Parse `id` as a number
+  const id = req.params.id.toString(); // Parse `id` as a number
   const { availability } = req.body;
 
   console.log("id", id);
@@ -74,7 +74,6 @@ app.patch('/books/:id', (req, res) => {
   const data = readJSON(BOOKS_PATH);
   const book = data.books.find((b) => b.id === id);
 
-  console.log(data.books[0].id);
   console.log("b", book);
   if (!book) {
     res.status(404).send('Livro não encontrado');

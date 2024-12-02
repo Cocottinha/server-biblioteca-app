@@ -5,14 +5,24 @@
       "cpf": "12345678900",
       "email": "joao@example.com",
       "password": "senha123",
-      "role": "Aluno"
+      "role": "Aluno",
+      "blocked": true
     },
     {
       "name": "Cotta",
       "cpf": "123123",
       "email": "cotta@teste.com",
       "password": "123456",
-      "role": "Administrador"
+      "role": "Administrador",
+      "blocked": false
+    },
+    {
+      "name": "Cleiton",
+      "cpf": "1234567890",
+      "email": "Miguel@teste.com",
+      "password": "123123",
+      "role": "Professor",
+      "blocked": false
     }
   ]
 }
