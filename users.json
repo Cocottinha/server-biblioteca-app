@@ -6,7 +6,7 @@
       "email": "joao@example.com",
       "password": "senha123",
       "role": "Aluno",
-      "blocked": true
+      "blocked": false
     },
     {
       "name": "Cotta",

@@ -109,6 +109,27 @@ app.post('/users', (req, res) => {
   res.status(201).send('Usuário cadastrado com sucesso.');
 });
 
+app.patch('/users/:cpf', (req, res) => {
+  const cpf = req.params.cpf;
+  const { blocked } = req.body; // Receive the blocked status in the request body
+
+  if (typeof blocked !== 'boolean') {
+    return res.status(400).send('Invalid blocked status.');
+  }
+
+  const data = readJSON(USERS_PATH);
+
+  const user = data.users.find((u) => u.cpf === cpf);
+  if (!user) {
+    return res.status(404).send('User not found.');
+  }
+
+  // Update the user's blocked status
+  user.blocked = blocked;
+  writeJSON(USERS_PATH, data);
+
+  res.status(200).send(`User ${blocked ? 'blocked' : 'unblocked'} successfully.`);
+});
 
 app.get('/users', (req, res) => {
   const data = readJSON(USERS_PATH);

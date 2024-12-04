@@ -32,6 +32,16 @@
       "inclusionDate": "2014-01-14",
       "availability": false,
       "id": "3"
+    },{
+      "title": "Ladrão de Almas",
+      "author": "Cleiton Rasta",
+      "isbn": "341234122",
+      "publisher": "Brasil Paralelo",
+      "subject": "Drama",
+      "edition": 1,
+      "inclusionDate": "2013-01-14",
+      "availability": true,
+      "id": "4"
     }
   ]
 }
